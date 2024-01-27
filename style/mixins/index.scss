@@ -1,0 +1,45 @@
+// Mixins
+@mixin flex($justify, $align, $gap: 0,$direction:row) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+  gap: $gap;
+}
+
+@mixin button-styles {
+  padding: 15px 30px;
+  width: 100%;
+  font-size: 20px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.5s;
+  background: white;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 100%;
+    left: 0;
+    border: none;
+    border-radius: 10px;
+    background-color: wheat;
+    z-index: 0;
+    transition: width 0.5s ease-in-out;
+  }
+
+  &:hover {
+    &::before {
+      width: 100%;
+    }
+  }
+}
